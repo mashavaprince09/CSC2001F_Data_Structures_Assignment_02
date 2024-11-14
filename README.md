@@ -92,50 +92,6 @@ This is the main application class that ties all the components together. It pro
 
 ---
 
-## Makefile
-
-### **Makefile Contents**
-
-```Makefile
-# Makefile for compiling the Kb project with AVL Tree and Binary Tree
-
-# Compiler and flags
-JAVAC = javac
-JFLAGS = -g
-
-# Directories
-SRC_DIR = src
-BIN_DIR = bin
-INPUT_FILE = input/2000_by_2000_All_1.csv
-OUTPUT_FILE = output/c.png
-
-# Java source files
-SOURCES = $(SRC_DIR)/Kb.java \
-          $(SRC_DIR)/AVLTree.java \
-          $(SRC_DIR)/BTQueue.java \
-          $(SRC_DIR)/BTQueueNode.java \
-          $(SRC_DIR)/BinaryTree.java \
-          $(SRC_DIR)/BinaryTreeNode.java \
-          $(SRC_DIR)/GenericsKbAVLApp.java
-
-# Default target to compile the project
-all: $(BIN_DIR)/Kb.class $(BIN_DIR)/AVLTree.class $(BIN_DIR)/BTQueue.class \
-    $(BIN_DIR)/BTQueueNode.class $(BIN_DIR)/BinaryTree.class $(BIN_DIR)/BinaryTreeNode.class \
-    $(BIN_DIR)/GenericsKbAVLApp.class
-
-# Compile the source files
-$(BIN_DIR)/%.class: $(SRC_DIR)/%.java
-	$(JAVAC) $(JFLAGS) -d $(BIN_DIR) $(SRC_DIR)/$*.java
-
-# Run the project with the input and output files
-run: all
-	java -cp $(BIN_DIR) GenericsKbAVLApp $(INPUT_FILE) $(OUTPUT_FILE)
-
-# Clean up the compiled files
-clean:
-	rm -f $(BIN_DIR)/*.class
-```
-
 ### **Makefile Instructions**
 1. **Compile**: Run `make` to compile the project and generate class files.
 2. **Run**: Use `make run` to execute the project with the provided input and output files.
